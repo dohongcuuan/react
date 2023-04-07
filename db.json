@@ -1,49 +1,10 @@
 {
   "products": [
     {
-      "id": 4,
-      "name": "abcd 123445",
-      "price": "400"
-    },
-    {
-      "name": "New Product 100 updated 2",
-      "price": "2",
-      "id": 5
-    },
-    {
-      "name": "New Product 1000",
-      "price": "1000",
-      "id": 60
-    },
-    {
-      "name": "quanquna",
-      "price": "30000",
-      "id": 61
-    },
-    {
-      "name": "6t8tigyigyi",
-      "price": "9898",
-      "id": 63
-    },
-    {
-      "name": "efwefegwef",
-      "price": "adsdadasdas",
-      "id": 65
-    },
-    {
-      "name": "máy dập miền bắc",
-      "price": "3000",
-      "id": 66
-    },
-    {
-      "name": "qưdqwd",
-      "price": "234324",
-      "id": 67
-    },
-    {
-      "name": "errrrr",
-      "price": "32423423",
-      "id": 69
+      "id": 61,
+      "name": "quanquna122",
+      "price": "30000"
     }
+    
   ]
 }

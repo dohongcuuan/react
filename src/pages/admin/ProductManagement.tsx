@@ -21,15 +21,31 @@ const ProductManagementPage = (props: IProps) => {
     }
     const columns: ColumnsType<DataType> = [
         {
-            title: 'Product Name',
+            title: ' Name',
             dataIndex: 'name',
             key: 'name',
             render: (text) => <a>{text}</a>,
         },
         {
-            title: 'Product Price',
+            title: ' Price',
             dataIndex: 'price',
             key: 'price',
+        },
+        {
+            title: 'image',
+            dataIndex: 'image',
+            key: 'image',
+        },
+        
+        {
+            title: 'Description',
+            dataIndex: 'des',
+            key: 'des',
+        },
+        {
+            title: 'categoryId',
+            dataIndex: 'categoryId',
+            key: 'categoryId',
         },
         {
             title: 'Action',
@@ -43,6 +59,7 @@ const ProductManagementPage = (props: IProps) => {
             ),
         },
     ];
+    
 
     const data: DataType[] = props.products.map((item: IProduct) => {
         return {

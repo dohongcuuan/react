@@ -41,7 +41,7 @@ const AddProductPage = (props: IProps) => {
                 autoComplete="off"
             >
                 <Form.Item
-                    label="Product Name"
+                    label=" Name"
                     name="name"
                     rules={[{ required: true, message: 'Please input your username!' }]}
                 >
@@ -49,9 +49,30 @@ const AddProductPage = (props: IProps) => {
                 </Form.Item>
 
                 <Form.Item
-                    label="Product Price"
+                    label=" Price"
                     name="price"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
+                    rules={[{ required: true, message: 'Please input your Price!' }]}
+                >
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    label=" image"
+                    name="image"
+                    rules={[{ required: true, message: 'Please input your Price!' }]}
+                >
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    label="des"
+                    name="des"
+                    rules={[{ required: true, message: 'Please input your des!' }]}
+                >
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    label="categoryId"
+                    name="categoryId"
+                    rules={[{ required: true, message: 'Please input your des!' }]}
                 >
                     <Input />
                 </Form.Item>

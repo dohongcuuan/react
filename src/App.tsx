@@ -13,7 +13,7 @@ import AdminLayout from './pages/layouts/AdminLayout'
 function App() {
   const [products, setProducts] = useState<IProduct[]>([])
   useEffect(() => {
-    getAllProduct().then(({ data }) => setProducts(data))
+    getAllProduct().then(({ data }) =>setProducts(data.data.docs))
   }, [])
   const onHandleRemove = (id: number) => {
     deleteProduct(id).then(() => setProducts(products.filter((item: IProduct) => item.id !== id)))
@@ -33,7 +33,7 @@ function App() {
           <Route path='products/:id' element={<ProductDetailPage products={products} />} />
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
-          
+            
             <Route index element={<ProductManagementPage products={products} onRemove={onHandleRemove} />} />
             <Route path='products/add' element={<AddProductPage onAdd={onHandleAdd} />} />
             <Route path='products/:id/update' element={<UpdateProductPage onUpdate={onHandleUpdate} products={products} />} />

@@ -1,50 +1,52 @@
 
 
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { Layout, Menu, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
-const { Header, Content, Footer } = Layout;
+
+const { Header, Content, Footer, Sider } = Layout;
 const AdminLayout = () => {
 
-        const {
-          token: { colorBgContainer },
-        } = theme.useToken();
-    
-    return (
-        <div>
-            <Layout>
-      <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%' }}>
-        <div
-          style={{
-            float: 'left',
-            width: 120,
-            height: 31,
-            margin: '16px 24px 16px 0',
-            background: 'rgba(255, 255, 255, 0.2)',
-          }}
-        />
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  return (
+    <Layout>
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+         
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log(collapsed, type);
+        }}
+      >
+        <div className="logo" />
         <Menu
           theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={new Array(3).fill(null).map((_, index) => ({
-            key: String(index + 1),
-            label: `nav ${index + 1}`,
-          }))}
+          mode="inline"
+          defaultSelectedKeys={['4']}
+          items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
+            (icon, index) => ({
+              key: String(index + 1),
+              icon: React.createElement(icon),
+              label: `trang trủ ${index + 1}`,
+            }),
+          )}
         />
-      </Header>
-      <Content className="site-layout" style={{ padding: '0 50px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <div style={{ padding: 24, minHeight: 380, background: colorBgContainer }}><Outlet/></div>
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+      </Sider>
+      <Layout>
+        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Content style={{ margin: '24px 16px 0' }}>
+          <div style={{ padding: 24, minHeight: 940, background: colorBgContainer }}><Outlet/></div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}></Footer>
+      </Layout>
     </Layout>
-        </div>
-    )
-}
+  );
+};
 
 export default AdminLayout
