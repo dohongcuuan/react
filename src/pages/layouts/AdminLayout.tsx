@@ -28,14 +28,24 @@ const AdminLayout = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['4']}
-          items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-            (icon, index) => ({
-              key: String(index + 1),
-              icon: React.createElement(icon),
-              label: `trang trủ ${index + 1}`,
-            }),
-          )}
+          defaultSelectedKeys={['1']}
+          items={[
+            {
+              key: '1',
+              icon: <UserOutlined />,
+              label: 'sản Phẩm ',
+            },
+            {
+              key: '2',
+              icon: <VideoCameraOutlined />,
+              label: 'Danh Mục',
+            },
+            {
+              key: '3',
+              icon: <UploadOutlined />,
+              label: 'nav 3',
+            },
+          ]}
         />
       </Sider>
       <Layout>

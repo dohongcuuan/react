@@ -19,11 +19,13 @@ function App() {
     deleteProduct(id).then(() => setProducts(products.filter((item: IProduct) => item.id !== id)))
   }
   const onHandleAdd = (product: IProduct) => {
-    addProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data)))
+    addProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data.data)))
   }
-  const onHandleUpdate = (product: IProduct) => {
+  const onHandleUpdate = (product: IProduct) => { 
     updateProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data)))
   }
+ 
+  
   return (
     <div className="App">
       <Routes>

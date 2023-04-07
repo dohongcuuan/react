@@ -55,13 +55,13 @@ const AddProductPage = (props: IProps) => {
                 >
                     <Input />
                 </Form.Item>
-                <Form.Item
+                {/* <Form.Item
                     label=" image"
                     name="image"
                     rules={[{ required: true, message: 'Please input your Price!' }]}
                 >
                     <Input />
-                </Form.Item>
+                </Form.Item> */}
                 <Form.Item
                     label="des"
                     name="des"
