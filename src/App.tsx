@@ -16,7 +16,9 @@ function App() {
     getAllProduct().then(({ data }) =>setProducts(data.data.docs))
   }, [])
   const onHandleRemove = (id: number) => {
-    deleteProduct(id).then(() => setProducts(products.filter((item: IProduct) => item.id !== id)))
+    deleteProduct(id).then(() => setProducts(products.filter((item: IProduct) => item._id !== id)))
+    // console.log(products);
+    
   }
   const onHandleAdd = (product: IProduct) => {
     addProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data.data)))
@@ -30,6 +32,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/'>
+          
           <Route index element={<HomePage />} />
           <Route path='products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
           <Route path='products/:id' element={<ProductDetailPage products={products} />} />

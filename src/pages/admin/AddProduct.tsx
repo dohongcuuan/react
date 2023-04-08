@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IProduct } from '../../types/product';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 interface IProps {
@@ -22,6 +22,7 @@ const AddProductPage = (props: IProps) => {
     const onFinish = (values: any) => {
         props.onAdd(values);
         navigate('/admin')
+        message.success('Thêm sản phẩm thành coong')
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -79,7 +80,7 @@ const AddProductPage = (props: IProps) => {
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button type="primary" htmlType="submit">
-                        Add New Product
+                        Thêm Sản Phẩm 
                     </Button>
                 </Form.Item>
             </Form>

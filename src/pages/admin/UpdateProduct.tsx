@@ -72,6 +72,21 @@ const UpdateProductPage = (props: IProps) => {
                 >
                     <Input />
                 </Form.Item>
+                <Form.Item
+                    label="des"
+                    name="des"
+                    rules={[{ required: true, message: 'Please input your des!' }]}
+                >
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    label="categoryId"
+                    name="categoryId"
+                    rules={[{ required: true, message: 'Please input your des!' }]}
+                >
+                    <Input />
+                </Form.Item>
+                
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                     <Button type="primary" htmlType="submit">
