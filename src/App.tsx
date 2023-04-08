@@ -24,6 +24,8 @@ function App() {
     addProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data.data)))
   }
   const onHandleUpdate = (product: IProduct) => { 
+  
+    
     updateProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data)))
   }
  

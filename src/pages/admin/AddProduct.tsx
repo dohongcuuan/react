@@ -22,7 +22,7 @@ const AddProductPage = (props: IProps) => {
     const onFinish = (values: any) => {
         props.onAdd(values);
         navigate('/admin')
-        message.success('Thêm sản phẩm thành coong')
+        message.success('Thêm sản phẩm thành công')
     };
 
     const onFinishFailed = (errorInfo: any) => {

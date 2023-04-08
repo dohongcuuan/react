@@ -10,7 +10,7 @@ const addProduct = (product: IProduct) => {
     return instance.post('/products', product);
 }
 const updateProduct = (product: IProduct) => {
-    return instance.put('/products/' + product.id, product);
+    return instance.patch('/products/' + product._id, product);
 }
 const deleteProduct = (id: number) => {
     return instance.delete('/products/' + id);

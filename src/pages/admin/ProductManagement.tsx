@@ -56,7 +56,7 @@ const ProductManagementPage = (props ) => {
 
                 <Space size="middle">
                     <Button type="primary" style={{ backgroundColor: 'red' }} onClick={()=>props.onRemove(record.key)}>Remove</Button>
-                    <Button type="primary" ><Link to={`/admin/products/${record.id}/update`}>Update</Link></Button>
+                    <Button type="primary" ><Link to={`/admin/products/${record.key}/update`}>Update</Link></Button>
                 </Space>
             ),
         },
