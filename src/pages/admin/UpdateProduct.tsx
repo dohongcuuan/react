@@ -51,7 +51,7 @@ const UpdateProductPage = (props: IProps) => {
     return (
         <div>
             <Form form={form} style={{ maxWidth: 600 }} onFinish={onFinish} >
-                {/* đoạn này cần truyền cả id vào form khi submit để lấy được giá trị id truyền lên component App */}
+                {}
                 
 
                 <Form.Item

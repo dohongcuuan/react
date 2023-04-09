@@ -9,6 +9,7 @@ import ProductPage from './pages/Product'
 import ProductDetailPage from './pages/ProductDetail'
 import { IProduct } from './types/product'
 import AdminLayout from './pages/layouts/AdminLayout'
+import Signin from './pages/admin/signin'
 
 function App() {
   const [products, setProducts] = useState<IProduct[]>([])
@@ -34,19 +35,28 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/'>
+
           
           <Route index element={<HomePage />} />
           <Route path='products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
           <Route path='products/:id' element={<ProductDetailPage products={products} />} />
+          
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
             
             <Route index element={<ProductManagementPage products={products} onRemove={onHandleRemove} />} />
             <Route path='products/add' element={<AddProductPage onAdd={onHandleAdd} />} />
             <Route path='products/:id/update' element={<UpdateProductPage onUpdate={onHandleUpdate} products={products} />} />
+           
+        </Route>
+        <Route path='/'>
+
+          
+        <Route path='login' element={<Signin />} />
           
         </Route>
       </Routes>
+      
     </div>
   )
 }
