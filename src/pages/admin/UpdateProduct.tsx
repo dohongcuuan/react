@@ -44,8 +44,8 @@ const UpdateProductPage = (props: IProps) => {
     const onFinish = (values: any) => {
         
         props.onUpdate({_id,...values});
-        navigate('/admin')
-        message.success('cập nhật sản phẩm thành công')
+        navigate('/admin/products/list')
+       
     };
 
     return (

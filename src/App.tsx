@@ -10,9 +10,12 @@ import ProductDetailPage from './pages/ProductDetail'
 import { IProduct } from './types/product'
 import AdminLayout from './pages/layouts/AdminLayout'
 import Signin from './pages/admin/signin'
-
+import AddCategories from './pages/admin/AddCategories'
+import { getAllcategorys, getOnecategorys, addcategorys, updatecategorys, deletecategorys } from './api/categorys'
+import CategorysList from './pages/admin/categoryslist'
 function App() {
   const [products, setProducts] = useState<IProduct[]>([])
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     getAllProduct().then(({ data }) =>setProducts(data.data.docs))
   }, [])
@@ -29,6 +32,27 @@ function App() {
     
     updateProduct(product).then(() => getAllProduct().then(({ data }) => setProducts(data)))
   }
+
+
+
+  const onHandleAddCategory = (category) => {
+    addcategorys(category).then(() => {
+      getAllcategorys().then(({data}) => setCategories(data))
+    });
+  };
+  
+  // const onHandleUpdateCategory = (category:ICategory) => {
+  //   console.log(category);
+    
+  //   updateCategory(category).then(() => {
+  //     setCategories(categories.map((item) => (item._id === category._id ? category : item)));
+  //   });
+  // };
+  // const onHandleRemoveCategory = (id: string|number) => {
+  //   deletecategorys(id).then(() => {
+  //     setCategories(categories.filter((item) => item.id !== id));
+  //   });
+  // };
  
   
   return (
@@ -44,17 +68,22 @@ function App() {
         </Route>
         <Route path='/admin' element={<AdminLayout/>}>
             
-            <Route index element={<ProductManagementPage products={products} onRemove={onHandleRemove} />} />
+            <Route  path='products/list' element={<ProductManagementPage products={products} onRemove={onHandleRemove} />} />
             <Route path='products/add' element={<AddProductPage onAdd={onHandleAdd} />} />
             <Route path='products/:id/update' element={<UpdateProductPage onUpdate={onHandleUpdate} products={products} />} />
-           
-        </Route>
-        <Route path='/'>
+            {/* <Route path='add' element={<AddCategory onAdd={onHandleAddCategory} />} /> */}
+            <Route path='categorys/add' element={<AddCategories onAdd={onHandleAddCategory} />} />
+            <Route path='categorys/list' element={< CategorysList categories={categories}  />} />
 
-          
-        <Route path='login' element={<Signin />} />
-          
         </Route>
+
+
+
+
+        <Route path='/'>
+        <Route path='login' element={<Signin />} /> 
+        </Route>
+        
       </Routes>
       
     </div>

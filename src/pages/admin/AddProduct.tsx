@@ -30,7 +30,7 @@ const AddProductPage = (props: IProps) => {
     };
     return (
         <div>
-            {}
+            
             <Form
                 name="basic"
                 labelCol={{ span: 8 }}

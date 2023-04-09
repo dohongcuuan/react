@@ -17,8 +17,8 @@ type MenuItem = Required<MenuProps>['items'][number];
 const items: MenuItem[] = [
     // getItem(<Link style={{ textDecorationLine: 'none' }} to={``}>Home Admin</Link>, 'sub1', <UserOutlined />),
     // getItem(<Link style={{ textDecorationLine: 'none' }} to={`/admin/products/add`}>Thêm sản phẩm</Link>, '1', <PieChartOutlined />),
-    getItem(<Link style={{ textDecorationLine: 'none' }} to={``}>List sản phẩm</Link>, '2', <DesktopOutlined />),
-    getItem(<Link style={{ textDecorationLine: 'none' }} to={`categorys`}>List danh mục </Link>, '9', <FileOutlined />),
+    getItem(<Link style={{ textDecorationLine: 'none' }} to={`/admin/products/list`}>List sản phẩm</Link>, '2', <DesktopOutlined />),
+    getItem(<Link style={{ textDecorationLine: 'none' }} to={`/admin/categorys/list`}>List danh mục </Link>, '9', <FileOutlined />),
     getItem(<Link style={{ textDecorationLine: 'none' }} to={`categorys/add`}>Thêm danh mục</Link>, '3', <PieChartOutlined />),
 ];
 

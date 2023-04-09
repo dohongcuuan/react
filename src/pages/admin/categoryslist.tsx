@@ -7,16 +7,16 @@ import { Link } from 'react-router-dom'
 
 
 
-const categorysList = (props ) => {
-    const data = props.categorys.map(items => {
+const CategorysList = (props ) => {
+    const data = props.categories.map(items => {
         return{
           key: items?._id,
           name: items?.name,
-          
+         
         }
       })
     interface IProps {
-        categorys: Icategorys[],
+      categories: Icategorys[],
         onRemove: (id: number) => void
         
     }
@@ -26,7 +26,8 @@ const categorysList = (props ) => {
             dataIndex: 'name',
             key: 'name',
             render: (text) => <a>{text}</a>,
-        },       
+        },
+        
         {
             title: 'Action',
             key: 'action',
@@ -34,7 +35,7 @@ const categorysList = (props ) => {
 
                 <Space size="middle">
                     <Button type="primary" style={{ backgroundColor: 'red' }} onClick={()=>props.onRemove(record.key)} >Remove</Button>
-                    <Button type="primary" ><Link to={`/admin${record.key}/update`}>Update</Link></Button>
+                    <Button type="primary" ><Link to={`/admin/products/${record.key}/update`}>Update</Link></Button>
                 </Space>
             ),
         },
@@ -45,10 +46,10 @@ const categorysList = (props ) => {
 
     return (
         <div>
-            <Button type='primary'><Link to={'/admin/products/add'}>Add New categorys</Link></Button>
+            <Button type='primary'><Link to={'/admin/products/add'}>Add New Product</Link></Button>
             <Table columns={columns} dataSource={data} pagination={{ pageSize: 20 }} />
         </div>
     )
 }
 
-export default categorysList
+export default CategorysList
