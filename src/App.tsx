@@ -14,10 +14,32 @@ import AddCategories from './pages/admin/AddCategories'
 import { getAllcategorys, getOnecategorys, addcategorys, updatecategorys, deletecategorys } from './api/categorys'
 import CategorysList from './pages/admin/categoryslist'
 import Updatecategories from './pages/admin/Updatecategories'
-
+import SignUp from './pages/admin/signup'
+import {signup} from './api/auth'
+import {login} from './api/auth'
 function App() {
   const [products, setProducts] = useState<IProduct[]>([])
   const [categories, setCategories] = useState([]);
+  const onHandleAddsigup = async (Sigup : any) => {
+    try {
+     const {data} = await signup(Sigup)
+   console.log(data)
+    } catch (error) {
+     console.log("Loi đky")
+    }
+   }
+
+   const onHandleAddsigin = async (Signin : any) => {
+    try {
+     const {data} = await login(Signin)
+     
+   console.log(data)
+    } catch (error) {
+     console.log("Loi đnhap")
+    }
+   }
+
+
   useEffect(() => {
     getAllProduct().then(({ data }) =>setProducts(data.data.docs))
   }, [])
@@ -62,7 +84,7 @@ const onHandleAddCategory = (category) => {addcategorys(category).then(() => {ge
       <Routes>
         <Route path='/'>
 
-          
+        <Route path="login" index element={<Signin/>}/>
           <Route index element={<HomePage />} />
           <Route path='products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
           <Route path='products/:id' element={<ProductDetailPage products={products} />} />
@@ -82,9 +104,11 @@ const onHandleAddCategory = (category) => {addcategorys(category).then(() => {ge
 
 
 
-        <Route path='/'>
-        <Route path='login' element={<Signin />} /> 
-        </Route>
+        {/* <Route path='/'>
+
+        <Route path="signup" index element={<SignUp onAdd={onHandleAddsigup}/>}  />
+          <Route path="login" index element={<Signin onAdd={onHandleAddsigin}/>}/>
+        </Route> */}
         
       </Routes>
       

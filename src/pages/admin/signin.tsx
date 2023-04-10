@@ -1,28 +1,51 @@
-import React from 'react'
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Button, Checkbox, Form, Input, message } from "antd";
+import { login } from "../../api/auth";
+type Props = {};
 
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
-const Signin = () => {
-    const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
+const Signin = (props: Props) => {
+  const {
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
+  const onFinish = async (values: any) => {
+    const { data: user } = await login(values);
+    console.log(user);
+    localStorage.setItem("token", JSON.stringify(user.accessToken));
+    message.success("Đăng nhập thành công!", 2);
+    if (user.role === "member") {
+      navigate("/");
+    } else {
+      navigate("/admin");
+    }
   };
   return (
-
     <Form
       name="normal_login"
       className="login-form"
+      labelCol={{ span: 8 }}
+      wrapperCol={{ span: 16 }}
+      style={{ width: 600, margin: "250px auto" }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
     >
       <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
+        label="Email"
+        name="email"
+        rules={[{ required: true, message: "Please input your Email!" }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input
+          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Email"
+        />
       </Form.Item>
       <Form.Item
+        label="Password "
         name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
+        rules={[{ required: true, message: "Please input your Password!" }]}
       >
         <Input
           prefix={<LockOutlined className="site-form-item-icon" />}
@@ -30,25 +53,13 @@ const Signin = () => {
           placeholder="Password"
         />
       </Form.Item>
-      <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <a className="login-form-forgot" href="">
-          Forgot password
-        </a>
-      </Form.Item>
-
-      <Form.Item>
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="">register now!</a>
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-
-export default Signin
+export default Signin;
