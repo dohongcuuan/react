@@ -12,7 +12,7 @@ const AddCategories = (props) => {
     const onFinish = (values: any) => {
      
       props.onAdd(values);
-      navigate("/admin/categories");
+      navigate("/admin");
       message.success("Thêm danh mục thành công!", 2);
     };
   

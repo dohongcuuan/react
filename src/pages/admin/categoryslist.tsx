@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom'
 
 
 
-const CategorysList = (props ) => {
+const CategorysList = (props) => {
+  
+  
+  
     const data = props.categories.map(items => {
         return{
           key: items?._id,
@@ -35,7 +38,7 @@ const CategorysList = (props ) => {
 
                 <Space size="middle">
                     <Button type="primary" style={{ backgroundColor: 'red' }} onClick={()=>props.onRemove(record.key)} >Remove</Button>
-                    <Button type="primary" ><Link to={`/admin/products/${record.key}/update`}>Update</Link></Button>
+                    <Button type="primary" ><Link to={`/admin/categorys/${record.key}/update`}>Update</Link></Button>
                 </Space>
             ),
         },
@@ -46,8 +49,8 @@ const CategorysList = (props ) => {
 
     return (
         <div>
-            <Button type='primary'><Link to={'/admin/products/add'}>Add New Product</Link></Button>
-            <Table columns={columns} dataSource={data} pagination={{ pageSize: 20 }} />
+            <Button type='primary'><Link to={'/admin/categorys/add'}>Add New Product</Link></Button>
+            <Table columns={columns} dataSource={data}  pagination={{ pageSize: 20 }} />
         </div>
     )
 }

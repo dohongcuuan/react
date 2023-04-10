@@ -21,7 +21,7 @@ const AddProductPage = (props: IProps) => {
 
     const onFinish = (values: any) => {
         props.onAdd(values);
-        navigate('/admin')
+        navigate('/admin/products/list')
         message.success('Thêm sản phẩm thành công')
     };
 
