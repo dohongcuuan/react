@@ -4,3 +4,4 @@ const instance = axios.create({
     baseURL: 'http://localhost:8081/api'
 })
 export default instance;
+export const token = JSON.parse(localStorage.getItem("token")!);
