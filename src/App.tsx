@@ -14,9 +14,10 @@ import AddCategories from './pages/admin/AddCategories'
 import { getAllcategorys, getOnecategorys, addcategorys, updatecategorys, deletecategorys } from './api/categorys'
 import CategorysList from './pages/admin/categoryslist'
 import Updatecategories from './pages/admin/Updatecategories'
-import SignUp from './pages/admin/signup'
+
 import {signup} from './api/auth'
 import {login} from './api/auth'
+import SignUp from './pages/admin/signup'
 function App() {
   const [products, setProducts] = useState<IProduct[]>([])
   const [categories, setCategories] = useState([]);
@@ -83,9 +84,9 @@ const onHandleAddCategory = (category) => {addcategorys(category).then(() => {ge
     <div className="App">
       <Routes>
         <Route path='/'>
-
+        <Route path="signup" index element={<SignUp onAdd={onHandleAddsigup}/>}  />
         <Route path="login" index element={<Signin/>}/>
-          <Route index element={<HomePage />} />
+          <Route path='homePage' element={<HomePage />} />
           <Route path='products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
           <Route path='products/:id' element={<ProductDetailPage products={products} />} />
           
