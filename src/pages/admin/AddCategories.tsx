@@ -35,7 +35,7 @@ const AddCategories = (props) => {
           <Form.Item
             label="Categories Name"
             name="name"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[{ required: true, message: "Please input your Categories!" }]}
           >
             <Input />
           </Form.Item>

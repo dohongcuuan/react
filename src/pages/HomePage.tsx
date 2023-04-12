@@ -2,7 +2,10 @@ import React from 'react'
 
 const HomePage = () => {
     return (
-        <div>HomePageưqdqw</div>
+        <div>
+            chưa làm 
+
+        </div>
     )
 }
 

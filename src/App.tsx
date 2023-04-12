@@ -86,7 +86,7 @@ const onHandleAddCategory = (category) => {addcategorys(category).then(() => {ge
         <Route path='/'>
         <Route path="signup" index element={<SignUp onAdd={onHandleAddsigup}/>}  />
         <Route path="login" index element={<Signin/>}/>
-          <Route path='homePage' element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path='products' element={<ProductPage products={products} onRemove={onHandleRemove} />} />
           <Route path='products/:id' element={<ProductDetailPage products={products} />} />
           

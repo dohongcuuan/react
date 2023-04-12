@@ -48,7 +48,7 @@ const AdminLayout: React.FC  = () => {
       const handleLogout = () => {
         localStorage.removeItem("token");
         setIsLoggedIn(false); // đăng xuất
-        navigate("/homePage");
+        navigate("/products");
       };
 
   const [collapsed, setCollapsed] = useState(false);
@@ -73,12 +73,12 @@ const AdminLayout: React.FC  = () => {
                                         Đăng xuất
                                     </Button>
                                     )}
-                                    {!isLoggedIn && ( 
+                                    {/* {!isLoggedIn && ( 
                                     <Button type="primary" onClick={() => navigate("/login")}>
                                         Đăng nhập
                                     </Button>
                                     
-                                    )}
+                                    )} */}
 
                             <Button
                                 size="small"

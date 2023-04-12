@@ -32,13 +32,13 @@ const UpdateProductPage = (props: IProps) => {
    
 
     const setFields = () => {
-        form.setFieldsValue({ 
-            id: product?.id,
-            name: product?.name,
-            price: product?.price,
-            des:product?.des,
-            categoryId:product?.categoryId
-        })
+        // form.setFieldsValue({ 
+        //     id: product?.id,
+        //     name: product?.name,
+        //     price: product?.price,
+        //     des:product?.des,
+        //     categoryId:product?.categoryId
+        // })
     }
 
     const onFinish = (values: any) => {

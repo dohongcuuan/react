@@ -19,7 +19,7 @@ const Signin = (props: Props) => {
     if (user.role === "member") {
       navigate("/");
     } else {
-      navigate("/admin");
+      navigate("/products");
     }
   };
   return (

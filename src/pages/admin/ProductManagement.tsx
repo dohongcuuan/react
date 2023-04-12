@@ -69,7 +69,7 @@ const ProductManagementPage = (props ) => {
     return (
         <div>
             <Button type='primary'><Link to={'/admin/products/add'}>Add New Product</Link></Button>
-            <Table columns={columns} dataSource={data} pagination={{ pageSize: 20 }} />
+            <Table columns={columns} dataSource={data} pagination={{ pageSize: 4 }} />
         </div>
     )
 }
